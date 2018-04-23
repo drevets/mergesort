@@ -1,8 +1,16 @@
 function mergeSort(wholeArray) {
+  if (!wholeArray.length) {
+    return wholeArray;
+  }
+  if (wholeArray.length === 1) {
+    return wholeArray;
+  }
+  let splitArray = split(wholeArray)
+  let array1 = splitArray[0]
+  let array2 = splitArray[1]
 
-  return sortedArray
+  return merge(mergeSort(array1), mergeSort(array2));
 }
-
 
 
 function split(wholeArray) {
@@ -12,6 +20,7 @@ function split(wholeArray) {
   let firstHalf = wholeArray.slice(0, mid);
   let secondHalf = wholeArray.slice(mid);
   return [firstHalf, secondHalf];
+
 }
 
 //what do we do for odd-length arrays??
