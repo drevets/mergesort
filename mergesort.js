@@ -20,15 +20,22 @@ function merge(arr1, arr2){
   let sorted = [];
   let in1 = 0, in2 =0;
 
-  while (in1 < arr1.length && in2 < arr2.length) {
-
-
+  while (in1 < arr1.length || in2 < arr2.length) {
 
     if(in1 >= arr1.length){
-      //do something
-
+      sorted = sorted.concat(arr2.slice(in2));
+      break;
     } else if (in2 >= arr2.length){
-      //do something else
+      sorted = sorted.concat(arr1.slice(in1));
+      break;
+    } else {
+      if (arr1[in1] <= arr2[in2]) {
+        sorted.push(arr1[in1]);
+        in1++;
+      } else {
+        sorted.push(arr2[in2]);
+        in2++;
+      }
     }
   }
 

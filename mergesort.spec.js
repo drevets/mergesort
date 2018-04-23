@@ -15,7 +15,20 @@ describe('Split Array function', function() {
 });
 
 describe('Merge function', function(){
-  it('is able to merge two sorted arrays into one sorted array', function(){
+  it('is able to merge two empty arrays', function(){
     // test the merging algorithm
+    expect(merge([], [])).toEqual([]);
   });
+
+  it('is able to merge one empty array with a filled array', function(){
+    // test the merging algorithm
+    expect(merge([], [2])).toEqual([2]);
+  });
+
+  it('is able to merge two filled arrays', function(){
+    // test the merging algorithm
+    expect(merge([1, 2, 6], [3, 4])).toEqual([1, 2, 3, 4, 6]);
+  });
+
+
 });
